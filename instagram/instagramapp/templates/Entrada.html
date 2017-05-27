@@ -13,6 +13,7 @@
  <body>
    <div class="card" style="width: 20rem;">
    <div class="card-block">
+     <form ation='{% url 'Entrada' %}' method='POST'>
      <form>
        <br>
        <br>
@@ -21,12 +22,12 @@
        <br>
        <br>
      <div class="form-group">
-       <input class="form-control" type="text" placeholder="Usuario">
+       <input class="form-control" type="text" name= 'name' placeholder="Usuario">
      </div>
      <div class="form-group">
-       <input class="form-control" type="text" placeholder="Contraseña">
+       <input class="form-control" name='password' type="password" placeholder="Contraseña">
      </div>
-  <a class="btn btn-primary" href="/Inicio">Login</a>
+  <a class="btn btn-primary">Login</a>
   <br>
   <br>
 ¿No tienes cuenta?
