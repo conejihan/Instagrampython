@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from instagramapp.models import *
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def index(request):
@@ -19,10 +20,14 @@ def crear_usuario(request):
     myUser.save()
     print (user)
     print (user.password)
-    return redirect('Entrada')
-def Entrada(request):
-    return render(request, 'Entrada.html')
+    return redirect('Login')
+
+@login_required
+def Subir(request):
+    return render(request, 'Subir.html')
+@login_required
 def Inicio(request):
     return render(request, 'Inicio.html')
+@login_required
 def Perfil(request):
     return render(request, 'Perfil.html')

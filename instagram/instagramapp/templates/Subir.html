@@ -12,7 +12,7 @@
  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
  </head>
  <body>
-   <nav style="background-color: #455a64"
+   <nav style="background-color: #455a64">
   <ul class="nav nav-fill">
     <li class="nav-item">
   <a class="nav-link" href="/Inicio"><i class="material-icons">home</i></a>
@@ -36,13 +36,23 @@
  </li>
 </ul>
 </nav>
-<div class="card-deck">
-  <div class="card">
-    <img class="card-img-top" src="http://cdn.xl.thumbs.canstockphoto.com/canstock32434050.jpg" alt="Card image cap" style="">
+<center>
+  <br>
+  <br>
+  <br>
+  <div class="card w-50">
     <div class="card-block">
-      <h4 class="card-title">Card title</h4>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <h3 class="card-title">Subir foto</h3>
+      <p class="card-text">Sube una foto y compartela con tus amigos</p>
+      <div class="form-group">
+        <br>
+        <br>
+    <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+    <img id="foto">
+  </div>
     </div>
-
+  </div>
+  <script type="text/javasecript" src="{% static 'instagramapp/JS/algo.js' %}"></script>  
+</center>
 </body>
 </html>
