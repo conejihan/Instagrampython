@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from instagramapp.models import *
 from django.contrib.auth.decorators import login_required
+from django.core.files.storage import FileSystemStorage
 # Create your views here.
 
 def index(request):
@@ -30,4 +31,26 @@ def Inicio(request):
     return render(request, 'Inicio.html')
 @login_required
 def Perfil(request):
-    return render(request, 'Perfil.html')
+    curr_user = request.user
+    mi_usuario = MiUsuario.objects.get(pk = curr_user.id)
+    media_user = Post.objects.filter( creador = mi_usuario );
+    context = { 'curr_user' : curr_user, 'media_user' : media_user }
+    return render(request, 'Perfil.html', context)
+
+@login_required
+def uploadFile (request):
+    curr_user = request.user
+    mi_usuario = MiUsuario.objects.get(pk = curr_user.id)
+    post_user = Post.objects.filter(creador=curr_user.id).count()
+    mediaFile = request.FILES['photo']
+    newNameFile= curr_user.username + "-" + str(curr_user.id) + "-" +str(post_user)
+    fs = FileSystemStorage()
+    filename = fs.save(newNameFile, mediaFile)
+    uploaded_file_url = fs.url(filename)
+    photo = uploaded_file_url;
+    description = "";
+    newPost = Post( foto = photo, descripcion = description, creador = mi_usuario );
+    newPost.save();
+    media_user = Post.objects.filter( creador = mi_usuario );
+    context = { 'curr_user' : curr_user, 'media_user' : media_user }
+    return render(request, 'Perfil.html', context)

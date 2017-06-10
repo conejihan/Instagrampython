@@ -36,13 +36,18 @@
  </li>
 </ul>
 </nav>
-<div class="card-deck">
-  <div class="card">
-    <img class="card-img-top" src="http://cdn.xl.thumbs.canstockphoto.com/canstock32434050.jpg" alt="Card image cap" style="">
-    <div class="card-block">
-      <h4 class="card-title">Card title</h4>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+<div class="card" style="margin-left:9%; margin-right:9%; margin-top:2%;">
+  <div class="card-block">
+    <div id="fotoperfil" style="float: left; width: 35%">
+      <img src="http://icon-icons.com/icons2/876/PNG/512/masculine-avatar-user-with-suit_icon-icons.com_68296.png" style="border-radius: 3943px; width: 50%; height: auto; margin-left:10%; margin-top: 1%;">
     </div>
-
+    <div>
+      <h1> conejihan </h1>
+    </div>
+  </div>
+</div>
+{% for photo in media_user %}
+  <img src="{% static ''%}{{photo.foto}}" alt="">
+{% endfor %}
 </body>
 </html>

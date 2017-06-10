@@ -47,12 +47,17 @@
       <div class="form-group">
         <br>
         <br>
-    <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+      <form class="" action="{% url 'uploadFile' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+    <input type="file" name="photo" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
     <img id="foto">
   </div>
     </div>
+    <button class="btn btn-outline-primary">Subir</button>
   </div>
-  <script type="text/javasecript" src="{% static 'instagramapp/JS/algo.js' %}"></script>  
 </center>
+    </form>
+  <script type="text/javasecript" src="{% static 'JS/algo.js' %}"></script>
 </body>
 </html>
